@@ -67,13 +67,43 @@ This tutorial outlines the implementation of Domain Controller in Active Directo
   <img width="883" height="469" alt="image" src="https://github.com/user-attachments/assets/84efe7b2-edbb-4f3e-83e6-3c0a3bf7abe8" />
 
 
+  
+<b>Configure Client1 DNS to Point to DC1</b>
+
+- By default, <b>Client1</b> uses Azure DNS. To join the domain, it must use <b>DC1</b> as DNS.
+- In the Azure Portal, open <b>Client1</b> → <b>Networking</b> → <b>NIC</b> → <b>DNS servers</b>.
+- Change setting from <b>Inherit from virtual network</b> to <b>Custom</b>.
+- Enter <b>DC1’s private IP address</b>.
+- Save changes.
+- Restart <b>Client1</b> VM to apply settings.
+
+<img width="975" height="768" alt="image" src="https://github.com/user-attachments/assets/cc3a50f9-878b-4578-8d07-23007dce5127" />
+
+
+## Test Connectivity from Client1 to DC1
+
+- Log into <b>Client1</b> using Remote Desktop with its public IP.
+- Open <b>PowerShell</b>.
+- Run:
+
+```powershell
+ping <10.0.0.6>
+```
+- You should see successful replies. If you see <b>Request timed out</b>, check that:
+  - Both VMs are on the same <b>VNet</b>.
+  - <b>DC1</b> firewall is disabled.
+
+<img width="975" height="763" alt="image" src="https://github.com/user-attachments/assets/54851b2d-0782-49cc-8b44-7d34432a2847" />
 
 
 
 
 
 
-<h2>Deployment and Configuration Steps</h2>
+
+
+
+
 
 
 <p>
