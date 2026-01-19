@@ -80,7 +80,7 @@ This tutorial outlines the implementation of Domain Controller in Active Directo
 <img width="975" height="768" alt="image" src="https://github.com/user-attachments/assets/cc3a50f9-878b-4578-8d07-23007dce5127" />
 
 
-## Test Connectivity from Client1 to DC1
+<b>Test Connectivity from Client1 to DC1</b>
 
 - Log into <b>Client1</b> using Remote Desktop with its public IP.
 - Open <b>PowerShell</b>.
@@ -95,37 +95,18 @@ ping <10.0.0.6>
 
 <img width="975" height="763" alt="image" src="https://github.com/user-attachments/assets/54851b2d-0782-49cc-8b44-7d34432a2847" />
 
+<b>Verify DNS Configuration on Client1</b>
+
+- Still in <b>Client1</b> PowerShell, run:
+
+```powershell
+ipconfig /all
+```
+
+- The <b>DNS Server</b> field should display DC1’s private IP.
+- If it shows an Azure DNS address instead, recheck the NIC DNS settings.
+
+<img width="700" height="672" alt="image" src="https://github.com/user-attachments/assets/c0e77d84-2e62-4322-bdc3-85fc60d33404" />
 
 
 
-
-
-
-
-
-
-
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
