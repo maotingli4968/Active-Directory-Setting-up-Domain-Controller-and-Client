@@ -27,7 +27,54 @@ This tutorial outlines the implementation of Domain Controller in Active Directo
 - Next, create a Virtual Network (e.g., <b>ActiveDirectoryVNet</b>) and assign it to the same Resource Group and region.
 - This ensures that all subsequent VMs can connect to the same VNet.
 
+<b>Create Domain Controller VM (DC1) </b>
+
+- Go to <b>Virtual Machines</b> → <b>Create</b>.
+- Resource Group: <b>ActiveDirectoryLab</b>
+- VM Name: <b>DC1</b>
+- Region: <b>East US 2</b> (same as the VNet)
+- Image: <b>Windows Server 2022 (Hotpatch)</b>
+- Size: <b>at least 2 vCPUs</b>
+- Licensing: check the required box
+- Networking: attach to <b>ActiveDirectoryVNet</b> with the default subnet
+- Click <b>Review + Create</b> → <b>Create</b>
+
+<img width="975" height="896" alt="image" src="https://github.com/user-attachments/assets/aaec4610-049d-4db8-81bb-201298293ec4" />
+
+
+<b> Create Client VM (windows-vm)</b>
+
+- You can create a new VM or keep using the old VM created in previous tutorials.
+
+
+<b>Configure Static Private IP for DC1</b>
+
+- By default, Azure assigns a dynamic private IP to VMs. For a domain controller, we need a static private IP so the address never changes.
+- In the Azure Portal, open <b>DC1</b> → <b>Networking</b> → <b>NIC</b> → <b>IP configurations</b>.
+- Change <b>Private IP assignment</b> from <b>Dynamic</b> to <b>Static</b>.
+- Save changes.
+- This ensures <b>Client1</b> can always resolve <b>DC1</b> when using it as the DNS server.
+
+  <img width="975" height="660" alt="image" src="https://github.com/user-attachments/assets/f1480537-8aef-4c30-ac0d-5dfc16ad0417" />
+
+  <b> Disable Firewall on DC1 (Lab Purposes Only)</b>
+
+- Log into <b>DC1</b> using Remote Desktop with its public IP.
+- Open <b>Run</b> → <b>wf.msc</b>.
+- In Windows Firewall settings, disable the firewall for <b>Domain</b>, <b>Private</b>, and <b>Public</b> profiles.
+- This is only for the lab to prevent pings from being blocked.
+
+  <img width="883" height="469" alt="image" src="https://github.com/user-attachments/assets/84efe7b2-edbb-4f3e-83e6-3c0a3bf7abe8" />
+
+
+
+
+
+
+
+
 <h2>Deployment and Configuration Steps</h2>
+
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
